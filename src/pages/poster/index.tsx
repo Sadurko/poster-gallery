@@ -1,9 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import { Link, PageProps, graphql } from 'gatsby';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import SmallImage from '../../components/smallImage';
+import { cardContainer, cardText } from './index.module.css';
 
 type DataProps = {
     allMdx: {
@@ -13,7 +14,8 @@ type DataProps = {
                 slug: string
                 image_small: {
                   gatsbyImageData: IGatsbyImageData,
-                }
+                },
+                image_alt: string;
             }
             id: string
         }[]
@@ -27,19 +29,18 @@ const PosterPage = ({ data: {allMdx} }: PageProps<DataProps>) => {
     <Layout pageTitle="My Posters">
       {
         allMdx.nodes.map(node => (
-            <article key={node.id}>
-                <h2>
-                    <Link to={`/poster/${node.frontmatter.slug}`}>
-                        {node.frontmatter.title}
-                    </Link>
-                </h2>
-                
-                <SmallImage
-                  imageInput={node.frontmatter.image_small}
-                  imageAlt={'s'}
-                  style={{ width: '25%', height: '25%' }}
-                />
-            </article>
+          <div className={cardContainer} key={node.id}>
+            <Link to={`/poster/${node.frontmatter.slug}`}>
+              <SmallImage
+                imageInput={node.frontmatter.image_small}
+                imageAlt={node.frontmatter.image_alt}
+              />
+
+              <div className={cardText}>
+                {node.frontmatter.title}
+              </div>
+            </Link>
+          </div>
         ))
       }
     </Layout>
