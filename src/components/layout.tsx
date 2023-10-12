@@ -43,8 +43,10 @@ const Layout = ({ pageTitle, children }: Props) => {
           </li>
         </ul>
       </nav>
+      
       <main>
         <h1 className={heading}>{pageTitle}</h1>
+        
         {children}
       </main>
     </div>

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { PageProps, graphql } from 'gatsby';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
-import SmallImage from '../../components/smallImage';
+import SmallImage from '../../components/imageCard';
 
 type DataProps = {
     mdx: {
@@ -19,13 +19,23 @@ type DataProps = {
 
 const PosterPost = ({ data: {mdx}, children }: PageProps<DataProps>) => {
 
+  const image = getImage(mdx.frontmatter.image);
+
     return (
         <Layout pageTitle={mdx.frontmatter.title}>
-          <SmallImage
-            imageInput={mdx.frontmatter.image}
-            imageAlt=''
-          />
-          {children}
+          {
+            (image !== undefined)
+            ? <GatsbyImage
+                image={image}
+                alt=''
+              />
+            : <div>Unable to load image</div>
+          }
+
+
+          <div style={{ width: '100%' }}>
+            {children}
+          </div>
         </Layout>
     )
 }

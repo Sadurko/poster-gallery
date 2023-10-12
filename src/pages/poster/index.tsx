@@ -3,8 +3,8 @@ import { Link, PageProps, graphql } from 'gatsby';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import SmallImage from '../../components/smallImage';
-import { cardContainer, cardText } from './index.module.css';
+import ImageCard from '../../components/imageCard';
+import { gridContainer } from './index.module.css';
 
 type DataProps = {
     allMdx: {
@@ -27,26 +27,26 @@ const PosterPage = ({ data: {allMdx} }: PageProps<DataProps>) => {
 
   return (
     <Layout pageTitle="My Posters">
-      {
-        allMdx.nodes.map(node => (
-          <div className={cardContainer} key={node.id}>
-            <Link to={`/poster/${node.frontmatter.slug}`}>
-              <SmallImage
-                imageInput={node.frontmatter.image_small}
-                imageAlt={node.frontmatter.image_alt}
-              />
-
-              <div className={cardText}>
-                {node.frontmatter.title}
-              </div>
-            </Link>
-          </div>
-        ))
-      }
+      <div style={{ display: 'flex', justifyContent: 'center'}}>
+        <div className={gridContainer}>
+          {
+            allMdx.nodes.map(node => (
+              <Link to={`/poster/${node.frontmatter.slug}`} key={node.id}>
+                <ImageCard
+                  imageInput={node.frontmatter.image_small}
+                  imageAlt={node.frontmatter.image_alt}
+                  text={node.frontmatter.title}
+                />
+              </Link>
+            ))
+          }
+        </div>
+      </div>
     </Layout>
   )
 }
 
+// export query to render on web page
 export const query = graphql`
   query {
     allMdx {
