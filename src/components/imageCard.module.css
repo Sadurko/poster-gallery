@@ -33,7 +33,7 @@
 }
 
 .card-image:hover + .card-text {
-    animation: smooth-appear 1s ease forwards;
+    animation: smooth-appear 0.5s ease forwards;
 }
 
 .card-no-image {
