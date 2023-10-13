@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: "My posters"
+    title: "Samuel Ďurkovic"
   },
   plugins: [
     "gatsby-plugin-image",

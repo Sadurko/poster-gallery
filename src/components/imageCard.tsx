@@ -27,12 +27,12 @@ const ImageCard = ({ imageInput, imageAlt, text }: Props) => {
                     className={cardImage}
                     />
                 : <div className={cardNoImage}>
-                    <p>Unable to load image</p>
+                    <p style={{ textDecoration: 'none' }}>Unable to load image</p>
                   </div>
             }
             
             <div className={cardText}>
-                {text}
+                {text.toUpperCase()}
             </div>
         </div>
     )

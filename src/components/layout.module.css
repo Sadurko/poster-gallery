@@ -1,7 +1,7 @@
 .container {
     margin: auto;
-    max-width: 700px;
-    font-family: sans-serif;
+    max-width: 1000px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .heading {
@@ -9,17 +9,27 @@
     text-align: center;
 }
 
-.nav-links {
+.nav-container {
     display: flex;
     list-style: none;
+    padding-left: 0;    /* ul has default padding, therefore to center it we need to set padding-left to 0 */
     justify-content: center;
 }
 
 .nav-link-item {
-    padding-right: 2rem;
+    width: 6rem;
+    margin: 0 2rem;
+    text-align: center;
 }
 
 .nav-link-text {
+    color: gray;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: large;
+}
+
+.nav-link-text:hover {
     color: black;
 }
 
@@ -28,5 +38,5 @@
     color: darkgray;
     font-weight: 500;
     text-align: center;
-    margin: 3rem 0;
+    margin: 3rem 1rem 0;
 }

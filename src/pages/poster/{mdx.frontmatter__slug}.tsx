@@ -23,18 +23,21 @@ const PosterPost = ({ data: {mdx}, children }: PageProps<DataProps>) => {
 
     return (
         <Layout pageTitle={mdx.frontmatter.title}>
-          {
-            (image !== undefined)
-            ? <GatsbyImage
-                image={image}
-                alt=''
-              />
-            : <div>Unable to load image</div>
-          }
+          <div style={{ display: 'flex' }}>
+            {
+              (image !== undefined)
+              ? <GatsbyImage
+                  image={image}
+                  alt=''
+                />
+              : <div>Unable to load image</div>
+            }
 
 
-          <div style={{ width: '100%' }}>
-            {children}
+            <div style={{ display: 'block', padding: '2rem', backgroundColor: '#ededed', borderBottomRightRadius: '20px', borderTopRightRadius: '20px', textAlign: 'justify' }}>
+              <h4 style={{ textAlign: 'center' }}>{mdx.frontmatter.title}</h4>
+              {children}
+            </div>
           </div>
         </Layout>
     )
