@@ -1,0 +1,9 @@
+.paragraph {
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    margin-top: 3rem;
+    color: darkgray;
+}

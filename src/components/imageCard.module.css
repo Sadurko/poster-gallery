@@ -42,6 +42,8 @@
     border: solid 1px black;
     width: 100%;
     padding-top: 60%;
+    text-decoration: none;
+    color: black;
 }
 
 .card-no-image:hover + .card-text {

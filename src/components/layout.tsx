@@ -8,13 +8,13 @@ import {
     navLinkText,
     siteTitle
 } from './layout.module.css';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 type Props = {
-    children?: ReactNode,
-    pageTitle: string,
+    children?: ReactNode
 }
 
-const Layout = ({ pageTitle, children }: Props) => {
+const Layout = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -22,12 +22,28 @@ const Layout = ({ pageTitle, children }: Props) => {
           title
         }
       }
+      imageSharp(fixed: {originalName: {eq: "podpis_2.png"}}) {
+        gatsbyImageData
+      }
     }
   `)
 
+  const image = getImage(data.imageSharp.gatsbyImageData);
+
   return (
     <div className={container}>
-      <header className={siteTitle}>{data.site.siteMetadata.title.toUpperCase()}</header>
+      <header className={siteTitle}>
+        {/* {data.site.siteMetadata.title.toUpperCase()} */}
+        
+        {
+          (image !== undefined)
+          ? <GatsbyImage
+              image={image}
+              alt='logo'
+            />
+          : <div>Samuel Ďurkovic</div>
+        }
+      </header>
       <nav>
         <ul className={navContainer}>
           <li className={navLinkItem}>
@@ -45,8 +61,6 @@ const Layout = ({ pageTitle, children }: Props) => {
       </nav>
       
       <main>
-        {/* <h1 className={heading}>{pageTitle}</h1> */}
-        
         {children}
       </main>
     </div>

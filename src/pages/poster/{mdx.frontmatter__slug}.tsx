@@ -3,7 +3,6 @@ import { PageProps, graphql } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
-import SmallImage from '../../components/imageCard';
 
 type DataProps = {
     mdx: {
@@ -22,7 +21,7 @@ const PosterPost = ({ data: {mdx}, children }: PageProps<DataProps>) => {
   const image = getImage(mdx.frontmatter.image);
 
     return (
-        <Layout pageTitle={mdx.frontmatter.title}>
+        <Layout>
           <div style={{ display: 'flex' }}>
             {
               (image !== undefined)
