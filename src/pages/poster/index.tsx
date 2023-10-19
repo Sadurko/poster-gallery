@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, PageProps, graphql } from 'gatsby';
-import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import ImageCard from '../../components/imageCard';
@@ -25,23 +24,21 @@ type DataProps = {
 const PosterPage = ({ data: {allMdx} }: PageProps<DataProps>) => {
 
   return (
-    <Layout>
-      <div style={{ display: 'flex', justifyContent: 'center'}}>
-        <div className={gridContainer}>
-          {
-            allMdx.nodes.map(node => (
-              <Link to={`/poster/${node.frontmatter.slug}`} key={node.id}>
-                <ImageCard
-                  imageInput={node.frontmatter.image_small}
-                  imageAlt={node.frontmatter.image_alt}
-                  text={node.frontmatter.title}
-                />
-              </Link>
-            ))
-          }
-        </div>
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
+      <div className={gridContainer}>
+        {
+          allMdx.nodes.map(node => (
+            <Link to={`/poster/${node.frontmatter.slug}`} key={node.id}>
+              <ImageCard
+                imageInput={node.frontmatter.image_small}
+                imageAlt={node.frontmatter.image_alt}
+                text={node.frontmatter.title}
+              />
+            </Link>
+          ))
+        }
       </div>
-    </Layout>
+    </div>
   )
 }
 

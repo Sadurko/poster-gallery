@@ -1,13 +1,12 @@
 import React from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
-import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import {
   container,
   textContainer,
   textTitle,
-  poster,
+  posterContainer,
 } from './{mdx.frontmatter__slug}.module.css';
 
 type DataProps = {
@@ -27,26 +26,25 @@ const PosterPost = ({ data: {mdx}, children }: PageProps<DataProps>) => {
   const image = getImage(mdx.frontmatter.image);
 
     return (
-        <Layout>
-          <div className={container}>
-            {
-              (image !== undefined)
-              ? <GatsbyImage
-                  image={image}
-                  alt=''
-                  className={poster}
-                />
-              : <div>Unable to load image</div>
-            }
+      <div className={container}>
+        <div className={posterContainer}>
+          {
+            (image !== undefined)
+            ? <GatsbyImage
+                image={image}
+                alt=''
+              />
+            : <div>Unable to load image</div>
+          }
+        </div>
 
 
-            <div className={textContainer}>
-              <h4 className={textTitle}>{mdx.frontmatter.title}</h4>
+        <div className={textContainer}>
+          <h4 className={textTitle}>{mdx.frontmatter.title}</h4>
 
-              {children}
-            </div>
-          </div>
-        </Layout>
+          {children}
+        </div>
+      </div>
     )
 }
 

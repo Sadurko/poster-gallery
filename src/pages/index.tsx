@@ -1,14 +1,11 @@
 // Step 1: Import React
 import React from 'react';
-import Layout from '../components/layout';
 import Seo from '../components/seo';
 
 
 const IndexPage = () => {
   return (
-    <Layout>
-      <p>Showcase of some posters made by me</p>
-    </Layout>
+    <p>Showcase of some posters made by me</p>
   )
 }
 

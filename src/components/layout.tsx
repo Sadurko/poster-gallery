@@ -30,17 +30,18 @@ const Layout = ({ children }: Props) => {
 
   const image = getImage(data.imageSharp.gatsbyImageData);
 
+  
+
   return (
     <div className={center}>
       <div className={container}>
         <header className={siteTitle}>
-          
-          
           {
             (image !== undefined)
             ? <GatsbyImage
                 image={image}
                 alt='logo'
+                style={{ width: '1000px' }}
               />
             : data.site.siteMetadata.title.toUpperCase()
           }

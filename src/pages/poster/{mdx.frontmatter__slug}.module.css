@@ -1,5 +1,7 @@
 .container {
     display: flex;
+    justify-content: center;
+    height: 1241px;
 }
 
 .text-container {
@@ -9,13 +11,13 @@
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     text-align: justify;
+    width: 400px;
 }
 
 .text-title {
     text-align: center;
 }
 
-.poster {
+.poster-container {
     width: 877px;
-    height: 1240px;
 }
