@@ -1,8 +1,8 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import {
+    center,
     container,
-    heading,
     navContainer,
     navLinkItem,
     navLinkText,
@@ -31,38 +31,40 @@ const Layout = ({ children }: Props) => {
   const image = getImage(data.imageSharp.gatsbyImageData);
 
   return (
-    <div className={container}>
-      <header className={siteTitle}>
-        {/* {data.site.siteMetadata.title.toUpperCase()} */}
+    <div className={center}>
+      <div className={container}>
+        <header className={siteTitle}>
+          
+          
+          {
+            (image !== undefined)
+            ? <GatsbyImage
+                image={image}
+                alt='logo'
+              />
+            : data.site.siteMetadata.title.toUpperCase()
+          }
+        </header>
+        <nav>
+          <ul className={navContainer}>
+            <li className={navLinkItem}>
+              <Link to="/" className={navLinkText}>HOME</Link>
+            </li>
+
+            <li className={navLinkItem}>
+              <Link to="/poster" className={navLinkText}>POSTERS</Link>
+            </li>
+
+            <li className={navLinkItem}>
+              <Link to="/about" className={navLinkText}>ABOUT</Link>
+            </li>
+          </ul>
+        </nav>
         
-        {
-          (image !== undefined)
-          ? <GatsbyImage
-              image={image}
-              alt='logo'
-            />
-          : <div>Samuel Ďurkovic</div>
-        }
-      </header>
-      <nav>
-        <ul className={navContainer}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>HOME</Link>
-          </li>
-
-          <li className={navLinkItem}>
-            <Link to="/poster" className={navLinkText}>POSTERS</Link>
-          </li>
-
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>ABOUT</Link>
-          </li>
-        </ul>
-      </nav>
-      
-      <main>
-        {children}
-      </main>
+        <main>
+          {children}
+        </main>
+      </div>
     </div>
   )
 }

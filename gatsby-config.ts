@@ -23,6 +23,7 @@ const config: GatsbyConfig = {
     },
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-catch-links",
   ],
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, PageProps, graphql } from 'gatsby';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
@@ -24,9 +24,8 @@ type DataProps = {
 
 const PosterPage = ({ data: {allMdx} }: PageProps<DataProps>) => {
 
-
   return (
-    <Layout pageTitle="My Posters">
+    <Layout>
       <div style={{ display: 'flex', justifyContent: 'center'}}>
         <div className={gridContainer}>
           {

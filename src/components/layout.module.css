@@ -1,7 +1,15 @@
+.center {
+    display: flex;
+}
+
 .container {
-    margin: auto;
     max-width: 1000px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(100vw - 100%);
+    /* when the scrollbar is not showing, 100vw and 100% are equal, when the scrollbar
+    is showing the difference between them is equal to the width of the scrollbar */
 }
 
 .heading {
@@ -12,7 +20,8 @@
 .nav-container {
     display: flex;
     list-style: none;
-    padding-left: 0;    /* ul has default padding, therefore to center it we need to set padding-left to 0 */
+    padding-left: 0;
+    /* ul has default padding, therefore to center it, we need to set padding-left to 0 */
     padding-bottom: 3rem;
     justify-content: center;
 }

@@ -6,6 +6,14 @@
     }
 }
 
+/* blur animation */
+@keyframes smooth-blur {
+    to{
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+    }
+}
+
 .card-container {
     display: flex;
     position: relative;
@@ -31,6 +39,10 @@
     font-size: x-large;
     height: 4rem;
     opacity: 0;
+}
+
+.card-image:hover {
+    animation: smooth-blur 0.5s ease forwards;
 }
 
 .card-image:hover + .card-text {

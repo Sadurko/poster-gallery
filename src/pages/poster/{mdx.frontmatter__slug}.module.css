@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+}
+
+.text-container {
+    display: block;
+    padding: 2rem;
+    background-color: #ededed;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: justify;
+}
+
+.text-title {
+    text-align: center;
+}
+
+.poster {
+    width: 877px;
+    height: 1240px;
+}

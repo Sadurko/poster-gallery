@@ -25,7 +25,7 @@ const ImageCard = ({ imageInput, imageAlt, text }: Props) => {
                     image={image}
                     alt={imageAlt}
                     className={cardImage}
-                    />
+                  />
                 : <div className={cardNoImage}>
                     <p>Unable to load image</p>
                   </div>
