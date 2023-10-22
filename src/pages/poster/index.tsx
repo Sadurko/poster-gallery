@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, PageProps, graphql } from 'gatsby';
 import Seo from '../../components/seo';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
@@ -22,6 +22,12 @@ type DataProps = {
 }
 
 const PosterPage = ({ data: {allMdx} }: PageProps<DataProps>) => {
+
+  // some pages load scrolled down a bit, this moves them back up
+  useEffect(() => {
+    setTimeout(() => window.scrollTo(...[0, 0]), 0);
+  }, []);
+  
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center'}}>

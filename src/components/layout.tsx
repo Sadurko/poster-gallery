@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import {
     center,
@@ -30,8 +30,6 @@ const Layout = ({ children }: Props) => {
 
   const image = getImage(data.imageSharp.gatsbyImageData);
 
-  
-
   return (
     <div className={center}>
       <div className={container}>
@@ -46,6 +44,7 @@ const Layout = ({ children }: Props) => {
             : data.site.siteMetadata.title.toUpperCase()
           }
         </header>
+        
         <nav>
           <ul className={navContainer}>
             <li className={navLinkItem}>

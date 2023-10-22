@@ -22,16 +22,3 @@ export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
         </Layout>
     )
 }
-
-
-export const shouldUpdateScroll: GatsbyBrowser['shouldUpdateScroll'] = ({
-    routerProps: { location },
-    getSavedScrollPosition,
-}) => {
-    const currentPosition = getSavedScrollPosition(location);
-    console.log(currentPosition)
-
-    window.scrollTo(...(currentPosition || [0, 0]));
-
-    return false;
-}
